@@ -1,0 +1,11 @@
+{
+  "name": "projecto-backend",
+  "version": "1.0.0",
+  "description": "Proyecto con fines educativos",
+  "main": "Contenedor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Franco Vial",
+  "license": "ISC"
+}
