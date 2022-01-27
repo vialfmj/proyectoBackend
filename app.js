@@ -3,7 +3,7 @@ const express= require('express')
 const app= express()
 
 
-const PORT = 8080
+const PORT = 3000
 const server= app.listen(PORT, ()=>{
     console.log(`escuchando el servidor en el puerto: ${server.address().port}`)
 })
