@@ -34,24 +34,25 @@ class Contenedor{
                     ]
 
                     let append= await fs.promises.writeFile(this.archivo,`${JSON.stringify(toAppend)}`)
-                    console.log(`id:${producto.id}`)
+                    console.log(`el id del producto agregado es:${producto.id}`)
                 }
             }
         }catch(error){
             console.log(error)
         }
     }
-    getAll= async()=>{
-        const respuesta=await fs.promises.readFile(this.archivo,'utf-8')
-        console.log(JSON.parse(respuesta))
+    getAll= async ()=>{
+        let respuesta
+        respuesta= await fs.promises.readFile(this.archivo,'utf-8')
+        return JSON.parse(respuesta)
     }
     getElementById=async(idBuscado)=>{
         const res= await fs.promises.readFile(this.archivo,'utf-8')
         let respuesta=JSON.parse(res)
         if(respuesta)
         {
-            let coincidencia= respuesta.find(element=>element.id===idBuscado)
-            console.log(coincidencia)
+            let coincidencia= respuesta.find(element=>element.id === idBuscado)
+            return coincidencia
 
         }
         else{
@@ -74,12 +75,7 @@ class Contenedor{
 
     }
     deleteAll=async()=>{
-        try{
-            respuesta= await fs.promises.writeFile(this.archivo,'[]')
-        }catch(error){
-            console.log(`error al ejecutar deleteAll:${error}`)
-        }
-
+        respuesta= await fs.promises.writeFile(this.archivo,'[]')
     }
 }
 module.exports={
